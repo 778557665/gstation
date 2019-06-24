@@ -4,6 +4,7 @@ import com.wengzhoujun.gstation.cache.UserOnlineCache;
 import com.wengzhoujun.gstation.domain.ErrorCode;
 import com.wengzhoujun.gstation.entity.RequestKeys;
 import com.wengzhoujun.gstation.entity.UserOnline;
+import com.wengzhoujun.gstation.filter.AuthFilter;
 import com.wengzhoujun.gstation.utils.ResponseUtil;
 import com.wengzhoujun.gstation.domain.Result;
 import com.wengzhoujun.gstation.domain.User;
@@ -58,7 +59,7 @@ public class UserController {
         if (!PasswordUtil.isPasswordValid(user.getPassword(), password, user.getSalt())) {
             return ResponseUtil.error(ErrorCode.WRONG_PHONE_OR_WRONG_PASSWORD);
         }
-        Cookie cookie = new Cookie("userId", user.getId().toString());
+        Cookie cookie = new Cookie(RequestKeys.USER_ID, user.getId().toString());
         response.addCookie(cookie);
         HttpSession session = request.getSession(false);
         if (session == null) {
@@ -89,5 +90,23 @@ public class UserController {
             }
         }
         return ResponseUtil.ok();
+    }
+
+    @GetMapping("/needLogin")
+    public Result needLogin() throws Exception {
+        return ResponseUtil.error("need_login");
+    }
+
+    @GetMapping("/test1")
+    public Result test1() throws Exception {
+        return ResponseUtil.ok("login");
+    }
+
+    @GetMapping("/loginOut")
+    public Result loginOut(HttpServletRequest req, HttpServletResponse res) throws Exception {
+        HttpSession session = req.getSession(false);
+        AuthFilter.clearAuth(req, res);
+        session.invalidate();
+        return ResponseUtil.ok("login out!");
     }
 }

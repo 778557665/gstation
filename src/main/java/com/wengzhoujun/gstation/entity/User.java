@@ -1,4 +1,4 @@
-package com.wengzhoujun.gstation.domain;
+package com.wengzhoujun.gstation.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 

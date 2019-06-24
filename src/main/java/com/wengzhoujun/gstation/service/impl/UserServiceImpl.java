@@ -1,6 +1,6 @@
 package com.wengzhoujun.gstation.service.impl;
 
-import com.wengzhoujun.gstation.domain.User;
+import com.wengzhoujun.gstation.entity.User;
 import com.wengzhoujun.gstation.repository.UserRepository;
 import com.wengzhoujun.gstation.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

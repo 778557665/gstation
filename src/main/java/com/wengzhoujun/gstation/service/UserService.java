@@ -1,6 +1,6 @@
 package com.wengzhoujun.gstation.service;
 
-import com.wengzhoujun.gstation.domain.User; /**
+import com.wengzhoujun.gstation.entity.User; /**
  * Created on 2019/6/19.
  *
  * @author WengZhoujun

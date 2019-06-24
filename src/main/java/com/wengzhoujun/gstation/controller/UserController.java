@@ -7,7 +7,7 @@ import com.wengzhoujun.gstation.entity.UserOnline;
 import com.wengzhoujun.gstation.filter.AuthFilter;
 import com.wengzhoujun.gstation.utils.ResponseUtil;
 import com.wengzhoujun.gstation.domain.Result;
-import com.wengzhoujun.gstation.domain.User;
+import com.wengzhoujun.gstation.entity.User;
 import com.wengzhoujun.gstation.service.UserService;
 import com.wengzhoujun.gstation.utils.PasswordUtil;
 import com.wengzhoujun.gstation.utils.UserUtils;

@@ -1,6 +1,6 @@
 package com.wengzhoujun.gstation.utils;
 
-import com.wengzhoujun.gstation.domain.User;
+import com.wengzhoujun.gstation.entity.User;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;

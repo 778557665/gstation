@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head lang="en" xmlns:th="http://www.thymeleaf.org">
+  <meta charset="UTF-8">
+  <title>Video Page</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="alternate icon" type="image/png" href="/amaze/assets/i/favicon.png">
+  <link rel="stylesheet" href="/amaze/assets/css/amazeui.min.css"/>
+  <style>
+    .header {
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 200%;
+      color: #333;
+      margin-top: 30px;
+    }
+    .header p {
+      font-size: 14px;
+    }
+    .am-gallery-overlay > li {
+      padding: 15px;
+    }
+  </style>
+</head>
+<body>
+<div class="header">
+  <div class="head-banner">
+    <img src="/amaze/assets/i/head.png">
+  </div>
+  <!--<div class="am-g">
+    <h1>G Station</h1>
+    <p>hello world!<br/>this is magic station</p>
+  </div>-->
+  <hr />
+</div>
+<div class="am-g">
+  <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
+    <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
+    am-avg-md-3 am-avg-lg-4 am-gallery-overlay" data-am-gallery="{ pureview: true }">
+      <li th:each="video : ${video}">
+        <div class="am-gallery-item">
+          <a th:href="@{${video.videoPath}}" class="" target="_blank">
+            <img th:src="@{${video.videoCoverPath}}" th:alt="${video.title}"/>
+            <h3 class="am-gallery-title" th:text="${video.title}"></h3>
+            <div class="am-gallery-desc" th:text="${video.createTime}"></div>
+          </a>
+        </div>
+      </li>
+      <!--<li>
+        <div class="am-gallery-item">
+          <a href="https://video.pearvideo.com/mp4/adshort/20190626/cont-1569715-11468872-182630_adpkg-ad_hd.mp4" class="" target="_blank">
+            <img src="https://image1.pearvideo.com/main/20190624/11468872-175025-1.png"  alt="不忘历史：集中营幸存者重回故地"/>
+            <h3 class="am-gallery-title">不忘历史：集中营幸存者重回故地</h3>
+            <div class="am-gallery-desc">2375-09-26</div>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="am-gallery-item">
+          <a href="https://video.pearvideo.com/mp4/adshort/20190626/cont-1568229-14061258_adpkg-ad_hd.mp4" class="" target="_blank">
+            <img src="https://image2.pearvideo.com/cont/20190626/cont-1568229-12014501.jpg"  alt="登月50年来宇航员戴什么腕表上天？"/>
+            <h3 class="am-gallery-title">登月50年来宇航员戴什么腕表上天？</h3>
+            <div class="am-gallery-desc">2375-09-26</div>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="am-gallery-item">
+          <a href="https://video.pearvideo.com/mp4/third/20190626/cont-1570746-11305454-200046-hd.mp4" class="" target="_blank">
+            <img src="https://image2.pearvideo.com/cont/20190626/cont-1570746-12014621.PNG"  alt="【萌宠厨房】宠物夏日小食香酥鸭排"/>
+            <h3 class="am-gallery-title">【萌宠厨房】宠物夏日小食香酥鸭排</h3>
+            <div class="am-gallery-desc">2375-09-26</div>
+          </a>
+        </div>
+      </li>-->
+    </ul>
+  </div>
+</div>
+</body>
+</html>

@@ -1,5 +1,7 @@
 package com.wengzhoujun.gstation.entity;
 
+import lombok.Builder;
+import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
@@ -14,6 +16,8 @@ import java.util.Date;
  *
  * @author WengZhoujun
  */
+@Data
+@Builder
 @Entity
 @Table(name = "gs_us_video")
 public class Video implements Serializable{
@@ -27,39 +31,14 @@ public class Video implements Serializable{
 
     private String videoPath;
 
+    private String videoCoverPath;
+
+    private String videoType;
+
     private String title;
 
     private Date createTime;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getVideoPath() {
-        return videoPath;
-    }
-
-    public void setVideoPath(String videoPath) {
-        this.videoPath = videoPath;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public Video() {
     }
 }

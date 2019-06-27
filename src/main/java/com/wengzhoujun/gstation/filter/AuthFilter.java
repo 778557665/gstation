@@ -24,7 +24,7 @@ import java.io.IOException;
 @Component
 public class AuthFilter implements Filter {
 
-    private String[] noAuthKeys = new String[]{"/user/signIn", "/user/needLogin"};
+    private String[] noAuthKeys = new String[]{"/user/signIn", "/user/needLogin", "/user/toLogin", "/index","/video"};
 
     public static final String TEMP_COOKIE = "TEMP_COOKIE_";
 
@@ -45,11 +45,31 @@ public class AuthFilter implements Filter {
             filterChain.doFilter(req, res);
             return;
         }
+        if(isStatic(reqUrl)){
+            filterChain.doFilter(req, res);
+            return;
+        }
         String sessionId = getFromCookie(req, RequestKeys.SESSION_UID);
         if (isExpired(sessionId)) {
             redirectLogin(res);
         }
-        filterChain.doFilter(req, res);
+//        filterChain.doFilter(req, res);
+    }
+
+    private boolean isStatic(String reqUrl){
+        if(reqUrl.contains(".css")){
+            return true;
+        }
+        if(reqUrl.contains(".js")){
+            return true;
+        }
+        if(reqUrl.contains(".png")){
+            return true;
+        }
+        if(reqUrl.contains(".jpg")){
+            return true;
+        }
+        return false;
     }
 
     private boolean isAuthUrl(String path) {
@@ -66,7 +86,7 @@ public class AuthFilter implements Filter {
     }
 
     private void redirectLogin(HttpServletResponse res) throws IOException {
-        res.sendRedirect("/user/needLogin");
+        res.sendRedirect("/user/toLogin");
     }
 
     @Override
